@@ -4,8 +4,7 @@ package vgrupper.coming.controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import vgrupper.coming.entity.City;
-import vgrupper.coming.entity.Weather;
+import vgrupper.coming.integration.Weather;
 import vgrupper.coming.service.WeatherService;
 
 @RestController
@@ -23,3 +22,4 @@ public class WeatherApiController {
                               @PathVariable String city) {
         return this.weatherService.getWeather(country, city);
     }
+}

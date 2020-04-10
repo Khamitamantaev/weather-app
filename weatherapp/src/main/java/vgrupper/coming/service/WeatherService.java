@@ -11,9 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriTemplate;
-import vgrupper.coming.entity.City;
-import vgrupper.coming.entity.Weather;
 import vgrupper.coming.exceptions.ProjectIdException;
+import vgrupper.coming.integration.Weather;
 import vgrupper.coming.repository.CityRepository;
 import vgrupper.coming.repository.WeatherRepository;
 
@@ -23,12 +22,12 @@ import java.net.URI;
 public class WeatherService {
 
     private static final String WEATHER_URL =
-            "http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={key}";
+            "http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={key}";
     private static final Logger logger = LoggerFactory.getLogger(WeatherService.class);
 
     private final RestTemplate restTemplate;
 
-    private String apiKey = "11036907f2957aadaad2ba384c675d32";
+    private String apiKey;
 
     @Autowired
     private CityRepository cityRepository;
@@ -36,8 +35,10 @@ public class WeatherService {
     @Autowired
     private WeatherRepository weatherRepository;
 
-    public WeatherService(RestTemplateBuilder restTemplateBuilder) {
+    public WeatherService(RestTemplateBuilder restTemplateBuilder,
+                          WeatherAppProperties properties) {
         this.restTemplate = restTemplateBuilder.build();
+        this.apiKey = properties.getApi().getKey();
     }
 
     @Cacheable("weather")
