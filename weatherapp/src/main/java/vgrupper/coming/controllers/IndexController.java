@@ -12,22 +12,22 @@ import vgrupper.coming.services.CityService;
 /**
  * Homepage controller.
  */
-@Controller
+//@Controller
 public class IndexController {
 
-    private CityService cityService;
-
-    @Autowired
-    public void setCityService(CityService cityService) {
-        this.cityService = cityService;
-    }
-
-
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Model model) {
-
-        model.addAttribute("cities", cityService.listAllCities());
-        return "index";
-    }
+//    private CityService cityService;
+//
+//    @Autowired
+//    public void setCityService(CityService cityService) {
+//        this.cityService = cityService;
+//    }
+//
+//
+//    @RequestMapping(value = "/", method = RequestMethod.GET)
+//    public String index(Model model) {
+//
+//        model.addAttribute("cities", cityService.listAllCities());
+//        return "index";
+//    }
 
 }
