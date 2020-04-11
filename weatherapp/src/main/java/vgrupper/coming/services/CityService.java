@@ -7,10 +7,11 @@ public interface CityService {
 
     Iterable<City> listAllCities();
 
-    City getCityById(Integer id);
+
+    City getCityByCityName(String name);
 
     City saveCity(City city);
 
-    void deleteCity(Integer id);
+    void deleteCity(String name);
 
 }

@@ -11,6 +11,7 @@ import vgrupper.coming.repositories.CityRepository;
 @Service
 public class CityServiceImpl implements CityService {
 
+    @Autowired
     private CityRepository cityRepository;
 
     @Autowired
@@ -24,8 +25,8 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public City getCityById(Integer id) {
-        return cityRepository.findOne(id);
+    public City getCityByCityName(String name) {
+        return cityRepository.findByCityName(name);
     }
 
     @Override
@@ -34,8 +35,8 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public void deleteCity(Integer id) {
-        cityRepository.delete(id);
+    public void deleteCity(String name) {
+        cityRepository.delete(name);
     }
 
 }

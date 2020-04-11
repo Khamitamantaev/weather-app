@@ -1,5 +1,6 @@
 package vgrupper.coming.controllers;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import vgrupper.coming.services.CityService;
 @RequestMapping("/api/weather")
 public class WeatherApiController {
 
+
    private final CityService cityService;
 
     public WeatherApiController(CityService cityService) {
@@ -21,10 +23,17 @@ public class WeatherApiController {
     }
 
 
-    @RequestMapping("/city/{id}")
-    public City getCity(@PathVariable Integer id) {
-        return this.cityService.getCityById(id);
+    @RequestMapping("/city/{name}")
+    public City getCity(@PathVariable String name) {
+        return this.cityService.getCityByCityName(name);
     }
+
+
+    @RequestMapping("/delete/{name}")
+    public City deleteCity(@PathVariable String name){
+        return this.cityService.deleteCity(name);
+    }
+
 }
 //@Controller
 //public class CityController {
