@@ -21,7 +21,7 @@ public class WeatherApiController {
     @PostMapping("")
     public ResponseEntity<?>  createNewCity(@RequestBody City city) {
 
-        City city1 = weatherService.saveCity(city);
+//        City city1 = weatherService.saveCity(city);
 
         return new ResponseEntity<City>( city, HttpStatus.CREATED);
 

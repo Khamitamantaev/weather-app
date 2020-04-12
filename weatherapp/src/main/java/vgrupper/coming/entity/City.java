@@ -14,14 +14,15 @@ public class City {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @JsonProperty("cityName")
-    private String cityName;
+    @JsonProperty("name")
+    private String name;
 
     @JsonProperty("weatherProvider")
     private String weatherProvider;
 
-    @JsonProperty("description")
-    private String description;
+    @JsonProperty("weather")
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "city")
+    private Weather weather;
 
     @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss")
     private Date datecreated;
@@ -42,13 +43,7 @@ public class City {
         this.id = id;
     }
 
-    public String getCityName() {
-        return cityName;
-    }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
 
     public String getWeatherProvider() {
         return weatherProvider;
@@ -58,13 +53,6 @@ public class City {
         this.weatherProvider = weatherProvider;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public Date getDatecreated() {
         return datecreated;
@@ -74,13 +62,29 @@ public class City {
         this.datecreated = datecreated;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Weather getWeather() {
+        return weather;
+    }
+
+    public void setWeather(Weather weather) {
+        this.weather = weather;
+    }
+
     @Override
     public String toString() {
         return "City{" +
                 "id=" + id +
-                ", cityName='" + cityName + '\'' +
+                ", name='" + name + '\'' +
                 ", weatherProvider='" + weatherProvider + '\'' +
-                ", description='" + description + '\'' +
+                ", weather='" + weather + '\'' +
                 ", datecreated=" + datecreated +
                 '}';
     }

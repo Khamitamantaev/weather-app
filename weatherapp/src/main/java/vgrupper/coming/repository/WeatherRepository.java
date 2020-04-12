@@ -3,12 +3,8 @@ package vgrupper.coming.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import vgrupper.coming.entity.City;
+import vgrupper.coming.entity.Weather;
 
 @Repository
-public interface CityRepository extends CrudRepository<City,Long> {
-
-    City findByName(String name);
-
-    @Override
-    Iterable<City> findAll();
+public interface WeatherRepository extends CrudRepository<Weather,Long> {
 }
