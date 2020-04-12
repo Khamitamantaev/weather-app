@@ -13,7 +13,7 @@ public class Main {
     private Long id;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "weather_id" ,nullable = false)
+    @JoinColumn(name = "weather_id",nullable = true)
     @JsonIgnore
     private Weather weather;
 
