@@ -10,7 +10,7 @@ import vgrupper.coming.entity.Main;
 import vgrupper.coming.entity.Weather;
 import vgrupper.coming.repository.CityRepository;
 
-@Service
+//@Service
 public class WeatherService {
 
     @Autowired
