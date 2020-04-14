@@ -1,40 +1,24 @@
 package vgrupper.coming.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import vgrupper.coming.entity.City;
-import vgrupper.coming.entity.Main;
-import vgrupper.coming.entity.Weather;
-import vgrupper.coming.repository.CityRepository;
-
 //@Service
 public class WeatherService {
-
-    @Autowired
-    private CityRepository cityRepository;
-
-
-
-    public City saveCity(City city) {
-
-        Main main = new Main();
-        Weather weather = new Weather();
-        weather.setMain(main);
-        weather.setCity(city);
-        city.setWeather(weather);
-
-        //сюда надо записать логику по API чтобы создать city с привязанными
-        return cityRepository.save(city);
-    }
-
-
-    public ResponseEntity<City> findByCityName(String name) {
-        City city = cityRepository.findByName(name);
-        return new ResponseEntity<>(city, HttpStatus.OK);
-    }
+//
+//    @Autowired
+//    private CityRepository cityRepository;
+//
+//
+//
+//    public City saveCity(City city) {
+//
+//        //сюда надо записать логику по API чтобы создать city с привязанными
+//        return cityRepository.save(city);
+//    }
+//
+//
+//    public ResponseEntity<City> findByCityName(String name) {
+//        City city = cityRepository.findByName(name);
+//        return new ResponseEntity<>(city, HttpStatus.OK);
+//    }
 }
 //    String apiKey = "11036907f2957aadaad2ba384c675d32";
 //    //api.openweathermap.org/data/2.5/weather?q={city name}&appid={your api key}

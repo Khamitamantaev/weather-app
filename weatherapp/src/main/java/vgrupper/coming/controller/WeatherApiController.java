@@ -1,16 +1,10 @@
 package vgrupper.coming.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vgrupper.coming.entity.City;
 import vgrupper.coming.integrations.Weather;
 import vgrupper.coming.integrations.WeatherService;
-import vgrupper.coming.repository.CityRepository;
 
-import java.util.List;
-import java.util.Map;
+import java.text.ParseException;
 
 @RestController
 @RequestMapping("/api/weather")
@@ -34,7 +28,7 @@ public class WeatherApiController {
 
     @RequestMapping("/now/{country}/{city}")
     public Weather getWeather(@PathVariable String country,
-                              @PathVariable String city) {
+                              @PathVariable String city) throws ParseException {
         return this.weatherService.getWeather(country, city);
     }
 

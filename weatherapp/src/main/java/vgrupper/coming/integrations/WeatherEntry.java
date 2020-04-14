@@ -16,8 +16,6 @@ public class WeatherEntry implements Serializable {
 
 	private Integer weatherId;
 
-	private String weatherIcon;
-
 	@JsonProperty("timestamp")
 	public Instant getTimestamp() {
 		return this.timestamp;
@@ -28,9 +26,6 @@ public class WeatherEntry implements Serializable {
 		this.timestamp = Instant.ofEpochMilli(unixTime * 1000);
 	}
 
-	/**
-	 * Return the temperature in Kelvin (K).
-	 */
 	public double getTemperature() {
 		return this.temperature;
 	}
@@ -52,19 +47,10 @@ public class WeatherEntry implements Serializable {
 		this.weatherId = weatherId;
 	}
 
-	public String getWeatherIcon() {
-		return this.weatherIcon;
-	}
-
-	public void setWeatherIcon(String weatherIcon) {
-		this.weatherIcon = weatherIcon;
-	}
 
 	@JsonProperty("weather")
 	public void setWeather(List<Map<String, Object>> weatherEntries) {
 		Map<String, Object> weather = weatherEntries.get(0);
 		setWeatherId((Integer) weather.get("id"));
-		setWeatherIcon((String) weather.get("icon"));
 	}
-
 }
