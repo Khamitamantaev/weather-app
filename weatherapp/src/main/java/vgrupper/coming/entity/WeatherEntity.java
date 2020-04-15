@@ -21,6 +21,8 @@ public class WeatherEntity {
 
     private Instant timestamp;
 
+    private String weatherappi;
+
 
     public WeatherEntity() {
     }
@@ -65,14 +67,23 @@ public class WeatherEntity {
         this.timestamp = timestamp;
     }
 
+    public String getWeatherappi() {
+        return weatherappi;
+    }
+
+    public void setWeatherappi(String weatherappi) {
+        this.weatherappi = weatherappi;
+    }
+
     @Override
     public String toString() {
-        return "Weather{" +
+        return "WeatherEntity{" +
                 "id=" + id +
-                ", city=" + city +
+                ", city='" + city + '\'' +
                 ", weatherId=" + weatherId +
                 ", temperature=" + temperature +
                 ", timestamp=" + timestamp +
+                ", weatherappi='" + weatherappi + '\'' +
                 '}';
     }
 }

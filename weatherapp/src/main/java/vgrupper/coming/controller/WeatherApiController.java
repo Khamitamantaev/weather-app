@@ -3,6 +3,8 @@ package vgrupper.coming.controller;
 import org.springframework.web.bind.annotation.*;
 import vgrupper.coming.integrations.Weather;
 import vgrupper.coming.integrations.WeatherService;
+import vgrupper.coming.integrations.Weatherwb;
+import vgrupper.coming.integrations.worldweather.Data;
 
 import java.text.ParseException;
 
@@ -26,10 +28,22 @@ public class WeatherApiController {
 //
 //    }
 
-    @RequestMapping("/now/{country}/{city}")
-    public Weather getWeather(@PathVariable String country,
+    @RequestMapping("/owm/{country}/{city}")
+    public Weather getWeatherOWP(@PathVariable String country,
                               @PathVariable String city) throws ParseException {
-        return this.weatherService.getWeather(country, city);
+        return this.weatherService.getWeatherOWM(country, city);
+    }
+
+    @RequestMapping("/wb/{city}")
+    //weatherbit
+    public Weatherwb getWeatherWB(@PathVariable String city) throws ParseException {
+        return this.weatherService.getWeatherWB(city);
+    }
+
+    @RequestMapping("/ww/{city}")
+    //NEED CHANGE
+    public Data getWeatherWW(@PathVariable String city) throws ParseException {
+        return this.weatherService.getWeatherWorldWeather(city);
     }
 
 
