@@ -43,10 +43,10 @@ public class WeatherService  {
 	private static final Logger logger = LoggerFactory.getLogger(WeatherService.class);
 
 	private final RestTemplate restTemplate;
-
-	private final String apiKey = "f75e4c6be1ccc40ca1dde7ce8c24d911";
-	private final String apiKeyWB = "12c8d06576ea442399c8f5a914579dc2";
-	private final String apiKeyWW = "1008a251c17a411f93b143321201004";
+//ключи сюда нужно добавить
+	private final String apiKey = "";
+	private final String apiKeyWB = "";
+	private final String apiKeyWW = "";
 
 	public WeatherService(RestTemplateBuilder restTemplateBuilder) {
 		this.restTemplate = restTemplateBuilder.build();
